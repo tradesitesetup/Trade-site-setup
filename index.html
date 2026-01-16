@@ -19,19 +19,77 @@
 
 <!-- HERO -->
 <section class="hero">
-  <img src="assets/logo.png" alt="TradeSiteSetup Logo" class="hero-logo"/>
-  <h1>Grow Your Local Business Online</h1>
-  <p>
-    Websites & Google Maps Optimization to get you found by more customers.
-  </p>
-  <button class="btn-primary" id="openContact2">Click Here to Inquire</button>
+  <div class="hero-content">
+    <img src="assets/logo.png" alt="TradeSiteSetup Logo" class="hero-logo"/>
+    <div class="hero-text">
+      <h1>Grow Your Local Business Online</h1>
+      <p>Websites & Google Maps Optimization to get you found by more customers.</p>
+      <button class="btn-primary" id="openContact2">Click Here to Inquire</button>
+    </div>
+  </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about">
-  <h2>About TradeSiteSetup</h2>
-  <p>
-    I help small businesses build professional, mobile-first websites and improve their Google Maps visibility so customers can find them easily.
-  </p>
-  <p>
-    Many local businesses lose leads simply because they don’t show up well online. I provi
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <h2>Here's How It Works</h2>
+  <div class="steps-grid">
+    <div class="step-box">
+      <h3>Step 1</h3>
+      <p>Fill out the inquiry form to provide your info and website needs.</p>
+    </div>
+    <div class="step-box">
+      <h3>Step 2</h3>
+      <p>I generate a professional website based on your requirements.</p>
+    </div>
+    <div class="step-box">
+      <h3>Step 3</h3>
+      <p>Complete the payment to finalize your order.</p>
+    </div>
+    <div class="step-box">
+      <h3>Step 4</h3>
+      <p>Your website goes live and is ready for customers.</p>
+    </div>
+    <div class="step-box">
+      <h3>Step 5</h3>
+      <p>Link your business to Google Maps to get found locally.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial-box">
+      <p>"Our website looks incredible! Customers can find us easily now." - Sarah, Bakery</p>
+    </div>
+    <div class="testimonial-box">
+      <p>"Professional, fast, and easy. Highly recommend!" - James, Plumber</p>
+    </div>
+    <div class="testimonial-box">
+      <p>"Will’s service boosted our local visibility and credibility." - Emily, Salon</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>Get Started</h3>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="business" placeholder="Business Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="address" placeholder="Business Address"/>
+      <input type="text" name="hours" placeholder="Business Hours"/>
+      <textarea name="message" placeholder="Tell me what you'd like in your site"></textarea>
+      <button type="submit" class="btn-submit">Send</button>
+      <p id="formStatus"></p>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
