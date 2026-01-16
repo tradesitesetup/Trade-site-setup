@@ -2,83 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TradeSiteSetup | Professional Websites for Local Businesses</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TradeSiteSetup</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="nav">
-  <img src="assets/logo.png" alt="TradeSiteSetup" class="logo" />
-  <button class="nav-cta" id="openContact">Contact</button>
+<nav class="nav-container">
+  <img src="assets/logo.png" alt="TradeSiteSetup Logo" class="logo"/>
+  <button class="nav-btn" id="openContact">Get In Touch</button>
 </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <h1>Websites That Make Small Businesses Look Legit</h1>
-      <p>
-        I build fast, mobile-first websites and online setups for local service
-        businesses — without agency pricing or nonsense.
-      </p>
-      <button class="primary-btn" id="openContact2">Get In Touch</button>
-    </div>
-
-    <div class="hero-visual">
-      <div class="browser">
-        <div class="browser-bar"></div>
-        <div class="browser-content">
-          <div class="line"></div>
-          <div class="line short"></div>
-          <div class="line"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- SERVICES -->
-<section class="section">
-  <h2>What I Do</h2>
-  <div class="features">
-    <div class="feature">📱 Mobile-First Websites</div>
-    <div class="feature">🌐 Google Business Setup</div>
-    <div class="feature">⚡ Fast Load Speeds</div>
-    <div class="feature">🎯 Built to Convert Leads</div>
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-box">
+    <h1>Professional Websites for Local Businesses</h1>
+    <p>Clean, mobile-first websites that help service companies look legit online — fast and professional.</p>
+    <button class="btn-primary" id="openContact2">Start Here</button>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="section dark">
+<!-- FEATURES SECTION -->
+<section class="features-section">
+  <h2>What I Do</h2>
+  <div class="features-grid">
+    <div class="feature-card">📱 Mobile-​First Websites</div>
+    <div class="feature-card">🌐 Google Business Setup</div>
+    <div class="feature-card">⚡ Fast & SEO-Friendly</div>
+    <div class="feature-card">🎯 Designed to Convert</div>
+  </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="process-section">
   <h2>How It Works</h2>
-  <div class="process">
+  <div class="process-steps">
     <div class="step"><span>1</span> Contact Me</div>
-    <div class="step"><span>2</span> I Build Everything</div>
+    <div class="step"><span>2</span> I Build It</div>
     <div class="step"><span>3</span> You Go Live</div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  © TradeSiteSetup
-</footer>
-
 <!-- CONTACT MODAL -->
 <div class="modal" id="contactModal">
-  <div class="modal-box">
-    <span class="close">&times;</span>
-    <h3>Get In Touch</h3>
-
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>Send Me Your Info</h3>
     <form id="contactForm">
-      <input name="name" placeholder="Your Name" required />
-      <input name="business" placeholder="Business Name" required />
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="business" placeholder="Business Name" required />
       <input type="email" name="email" placeholder="Email" required />
-      <input name="address" placeholder="Business Address" />
-      <input name="hours" placeholder="Business Hours" />
+      <input type="text" name="address" placeholder="Business Address"/>
+      <input type="text" name="hours" placeholder="Business Hours"/>
       <textarea name="message" placeholder="Tell me what you'd like in your site"></textarea>
-      <button type="submit">Send Message</button>
+      <button type="submit" class="btn-submit">Send</button>
       <p id="formStatus"></p>
     </form>
   </div>
