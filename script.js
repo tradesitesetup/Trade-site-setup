@@ -1,14 +1,36 @@
-// Open/Close Modal
 const modal = document.getElementById("contactModal");
 const openBtns = document.querySelectorAll("#openContact, #openContact2");
 const closeBtn = document.querySelector(".close-btn");
 
-openBtns.forEach(btn => btn.onclick = () => modal.style.display = "flex");
-closeBtn.onclick = () => modal.style.display = "none";
-window.onclick = e => { if(e.target === modal) modal.style.display = "none"; };
+// OPEN MODAL
+openBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  });
+});
 
-// Form Submission
-document.getElementById("contactForm").addEventListener("submit", async e => {
+// CLOSE FUNCTIONS
+function closeModal() {
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+// CLOSE BUTTON
+closeBtn.addEventListener("click", closeModal);
+
+// CLICK OUTSIDE
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+
+// ESC KEY
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
+});
+
+// FORM SUBMISSION
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const status = document.getElementById("formStatus");
   const data = new FormData(e.target);
@@ -19,9 +41,14 @@ document.getElementById("contactForm").addEventListener("submit", async e => {
       body: data,
       headers: { "Accept": "application/json" }
     });
-    status.textContent = response.ok ? "Message sent!" : "Oops, error.";
-    if(response.ok) e.target.reset();
+
+    if (response.ok) {
+      status.textContent = "Thanks! I’ll be in touch shortly.";
+      e.target.reset();
+    } else {
+      status.textContent = "Something went wrong. Please try again.";
+    }
   } catch {
-    status.textContent = "Network error.";
+    status.textContent = "Network error. Please try again later.";
   }
 });
