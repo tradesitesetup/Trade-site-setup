@@ -1,21 +1,39 @@
-const modal = document.getElementById("contactModal");
-const openBtns = document.querySelectorAll("#openContact, #openContact2, #openContact3");
-const closeBtn = document.querySelector(".close-btn");
+const contactModal = document.getElementById("contactModal");
+const pricingModal = document.getElementById("pricingModal");
+const openContactBtns = document.querySelectorAll("#openContact, #openContact2");
+const openPricingBtn = document.getElementById("openPricing");
+const closeBtns = document.querySelectorAll(".close-btn");
 
-// OPEN MODAL
-openBtns.forEach(btn => btn.addEventListener("click", () => {
-  modal.style.display = "flex";
+// OPEN CONTACT MODAL
+openContactBtns.forEach(btn => btn.addEventListener("click", () => {
+  contactModal.style.display = "flex";
   document.body.style.overflow = "hidden";
 }));
 
-// CLOSE MODAL
-function closeModal() {
-  modal.style.display = "none";
+// OPEN PRICING MODAL
+openPricingBtn.addEventListener("click", () => {
+  pricingModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+});
+
+// CLOSE MODALS
+closeBtns.forEach(btn => btn.addEventListener("click", () => {
+  contactModal.style.display = "none";
+  pricingModal.style.display = "none";
   document.body.style.overflow = "auto";
-}
-closeBtn.addEventListener("click", closeModal);
-modal.addEventListener("click", e => { if(e.target===modal) closeModal(); });
-document.addEventListener("keydown", e => { if(e.key==="Escape") closeModal(); });
+}));
+
+[contactModal, pricingModal].forEach(modal => {
+  modal.addEventListener("click", e => { if(e.target===modal) { modal.style.display="none"; document.body.style.overflow="auto"; } });
+});
+
+document.addEventListener("keydown", e => { 
+  if(e.key==="Escape") {
+    contactModal.style.display="none"; 
+    pricingModal.style.display="none"; 
+    document.body.style.overflow="auto";
+  }
+});
 
 // FORM SUBMISSION
 document.getElementById("contactForm").addEventListener("submit", async e=>{
@@ -24,7 +42,11 @@ document.getElementById("contactForm").addEventListener("submit", async e=>{
   const data = new FormData(e.target);
   try{
     const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", { method:"POST", body:data, headers:{"Accept":"application/json"}});
-    if(response.ok){ status.textContent="Thanks! I’ll be in touch shortly."; e.target.reset(); } 
-    else { status.textContent="Something went wrong. Please try again."; }
+    if(response.ok){ 
+      status.textContent="Thanks! I’ll be in touch shortly."; 
+      e.target.reset(); 
+    } else { 
+      status.textContent="Something went wrong. Please try again."; 
+    }
   } catch { status.textContent="Network error. Please try again later."; }
 });
